@@ -15,3 +15,6 @@ stage2：
     -> abbbad, ccc is replaced by b
     ->aaad, bbb is replaced by a
     ->d
+
+使用栈结构和递归方式实现
+入口为 com.example.Stage1Test 和 com.example.Stage2Test
