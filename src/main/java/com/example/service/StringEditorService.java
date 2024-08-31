@@ -1,29 +1,12 @@
-package com.example;
+package com.example.service;
 
 import java.util.Stack;
 
-public class StringEditor {
+public class StringEditorService {
     // the number of char need to combine
     final int COMBINE_NUM = 3;
 
-    public String editWithCombine(String input) {
-        return doEdit(input, false);
-    }
-
-    public String editWithCombineAndReplace(String input) {
-        return doEdit(input, true);
-    }
-
-    // join char stack element to string
-    private String charStackToString(Stack<Character> stack) {
-        StringBuilder sb = new StringBuilder();
-        while (!stack.isEmpty()) {
-            sb.insert(0, stack.pop());
-        }
-        return sb.toString();
-    }
-
-    private String doEdit(String input, boolean isNeedAddBeforeChar) {
+    public String doEdit(String input, boolean isNeedAddBeforeChar) {
         if (input == null || input.isEmpty()) {
             return input;
         }
@@ -33,6 +16,15 @@ public class StringEditor {
             pushAndCombine(stack, charredAt, isNeedAddBeforeChar);
         }
         return charStackToString(stack);
+    }
+
+    // join char stack element to string
+    private String charStackToString(Stack<Character> stack) {
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) {
+            sb.insert(0, stack.pop());
+        }
+        return sb.toString();
     }
 
     // when itemChar push into the stack make the same char count meet with the requirement num, the same char need to combine
